@@ -1,84 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Welcome to Email Assistant</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0d59f2",
-                        "background-light": "#f5f6f8",
-                        "background-dark": "#101622",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Welcome to Email Assistant</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0d59f2',
+              'background-light': '#f5f6f8',
+              'background-dark': '#101622',
             },
-        }
+            fontFamily: {
+              display: ['Inter', 'sans-serif'],
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+          },
+        },
+      };
     </script>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
   </head>
-<body class="bg-background-light dark:bg-background-dark font-display antialiased transition-colors duration-200">
-<div class="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden px-4">
-<!-- Decorative Background Elements -->
-<div class="absolute top-[-10%] left-[-10%] w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
-<div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-<!-- Main Container -->
-<div class="relative z-10 w-full max-w-[440px] flex flex-col items-center">
-<!-- App Icon/Logo Placeholder -->
-<div class="mb-8 flex h-20 w-20 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20">
-<span class="material-symbols-outlined !text-[40px]">mail</span>
-</div>
-<!-- Content Section -->
-<div class="text-center mb-10">
-<h1 class="text-slate-900 dark:text-slate-100 tracking-tight text-[32px] font-bold leading-tight pb-3">
-                    Welcome to Email Assistant
-                </h1>
-<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-relaxed px-4">
-                    The simplest way to manage your inbox. Get started by signing into your account.
-                </p>
-</div>
-<!-- Action Section -->
-<div class="w-full space-y-4 px-4">
-<button class="group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 bg-primary text-white gap-3 px-6 shadow-md hover:bg-primary/90 transition-all active:scale-[0.98]">
-<div class="flex items-center justify-center w-6 h-6">
-<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
-<path d="M224,128a96,96,0,1,1-21.95-61.09,8,8,0,1,1-12.33,10.18A80,80,0,1,0,207.6,136H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128Z"></path>
-</svg>
-</div>
-<span class="truncate text-base font-semibold tracking-wide">Sign in with Google</span>
-</button>
-<p class="text-center text-xs text-slate-500 dark:text-slate-500 pt-4">
-                    By signing in, you agree to our Terms of Service and Privacy Policy.
-                </p>
-</div>
-<!-- Subtle Illustration/Image -->
-<div class="mt-16 w-full max-w-[320px] opacity-40 grayscale">
-<div class="h-1 w-full bg-gradient-to-r from-transparent via-primary/20 to-transparent rounded-full"></div>
-</div>
-</div>
-<!-- Footer Footer (Minimal) -->
-<div class="absolute bottom-8 text-slate-400 dark:text-slate-600 text-sm">
-            © 2024 Email Assistant Inc.
+  <body
+    class="bg-background-light dark:bg-background-dark font-display antialiased transition-colors duration-200">
+    <div
+      class="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden px-4">
+      <!-- Decorative Background Elements -->
+      <div
+        class="absolute left-[-10%] top-[-10%] h-72 w-72 rounded-full bg-primary/10 blur-3xl"></div>
+      <div
+        class="absolute bottom-[-10%] right-[-10%] h-96 w-96 rounded-full bg-primary/5 blur-3xl"></div>
+      <!-- Main Container -->
+      <div class="relative z-10 flex w-full max-w-[440px] flex-col items-center">
+        <!-- App Icon/Logo Placeholder -->
+        <div
+          class="mb-8 flex h-20 w-20 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20">
+          <span class="material-symbols-outlined !text-[40px]">mail</span>
         </div>
-</div>
-</body></html>
+        <!-- Content Section -->
+        <div class="mb-10 text-center">
+          <h1
+            class="pb-3 text-[32px] font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100">
+            Welcome to Email Assistant
+          </h1>
+          <p class="px-4 text-base font-normal leading-relaxed text-slate-600 dark:text-slate-400">
+            The simplest way to manage your inbox. Get started by signing into your account.
+          </p>
+        </div>
+        <!-- Action Section -->
+        <div class="w-full space-y-4 px-4">
+          <button
+            class="group relative flex h-14 w-full cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg bg-primary px-6 text-white shadow-md transition-all hover:bg-primary/90 active:scale-[0.98]">
+            <div class="flex h-6 w-6 items-center justify-center">
+              <svg
+                fill="currentColor"
+                height="24px"
+                viewbox="0 0 256 256"
+                width="24px"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M224,128a96,96,0,1,1-21.95-61.09,8,8,0,1,1-12.33,10.18A80,80,0,1,0,207.6,136H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128Z"></path>
+              </svg>
+            </div>
+            <span class="truncate text-base font-semibold tracking-wide">Sign in with Google</span>
+          </button>
+          <p class="pt-4 text-center text-xs text-slate-500 dark:text-slate-500">
+            By signing in, you agree to our Terms of Service and Privacy Policy.
+          </p>
+        </div>
+        <!-- Subtle Illustration/Image -->
+        <div class="mt-16 w-full max-w-[320px] opacity-40 grayscale">
+          <div
+            class="h-1 w-full rounded-full bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+        </div>
+      </div>
+      <!-- Footer Footer (Minimal) -->
+      <div class="absolute bottom-8 text-sm text-slate-400 dark:text-slate-600">
+        © 2024 Email Assistant Inc.
+      </div>
+    </div>
+  </body>
+</html>
