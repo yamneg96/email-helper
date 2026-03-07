@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In - Email Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-4">
+<div class="w-full max-w-md">
+<!-- Logo Section -->
+<div class="flex flex-col items-center mb-8 gap-3">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">mail</span>
+</div>
+<div class="text-center">
+<h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Email Assistant</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Your intelligent inbox companion / የእርስዎ ብልህ የኢሜል ረዳት</p>
+</div>
+</div>
+<!-- Shadcn-like Card -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg overflow-hidden">
+<div class="p-8">
+<div class="text-center mb-8">
+<h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100">Sign In / ይግቡ</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Access your account to get started / ለመጀመር ወደ መለያዎ ይግቡ</p>
+</div>
+<!-- Main Action -->
+<div class="space-y-4">
+<button class="w-full flex items-center justify-center gap-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium py-3 px-4 rounded-lg transition-colors">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span>Sign in with Google / በGoogle ይግቡ</span>
+</button>
+</div>
+</div>
+<!-- Footer Privacy Note -->
+<div class="bg-slate-50 dark:bg-slate-800/50 p-6 border-t border-slate-200 dark:border-slate-800">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-xl">shield</span>
+<div class="space-y-2">
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"><span class="font-semibold block mb-1">Privacy &amp; Security / ግላዊነት እና ደህንነት</span> Your data is protected with industry-standard encryption. We never share your personal information or email content with third parties.</p>
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">የእርስዎ ውሂብ በኢንዱስትሪ ደረጃ ምስጠራ የተጠበቀ ነው። የግል መረጃዎን ወይም የኢሜል ይዘትዎን ለሶስተኛ ወገኖች ፈጽሞ አናጋራም።</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Info -->
+<p class="text-center mt-8 text-slate-400 dark:text-slate-500 text-xs">By signing in, you agree to our Terms of Service and Privacy Policy.<br/>በመግባትዎ በአገልግሎት ውላችን እና በግላዊነት መመሪያችን ይስማማሉ።</p>
+</div>
+</body></html>

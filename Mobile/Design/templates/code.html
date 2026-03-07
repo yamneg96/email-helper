@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0d59f2",
+              "background-light": "#f5f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<title>Templates - Email Assistant</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto w-full">
+<div class="flex items-center gap-3">
+<a class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">arrow_back</span>
+</a>
+<h1 class="text-xl font-bold tracking-tight">Templates</h1>
+</div>
+<button class="flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Filter Tabs -->
+<div class="max-w-md mx-auto w-full">
+<div class="flex border-b border-slate-100 dark:border-slate-800 px-4 gap-6">
+<a class="flex flex-col items-center justify-center border-b-2 border-primary text-primary pb-3 pt-2" href="#">
+<p class="text-sm font-semibold">All</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2 hover:text-slate-700 dark:hover:text-slate-200" href="#">
+<p class="text-sm font-semibold">Email</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2 hover:text-slate-700 dark:hover:text-slate-200" href="#">
+<p class="text-sm font-semibold">Professional</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2 hover:text-slate-700 dark:hover:text-slate-200" href="#">
+<p class="text-sm font-semibold">Personal</p>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 max-w-md mx-auto w-full p-4 space-y-4">
+<!-- Job Application Card -->
+<div class="group flex flex-col items-stretch justify-start rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="w-full bg-center bg-no-repeat aspect-[21/9] bg-cover" data-alt="Modern workspace with laptop and coffee" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjHc-3yyh-ArYSmOfQelrOPyQFS-C8i0qvl2BeL_-kI2krCqYDVXSw_vEo82W3iLqb19CNYr0QXcqchWzKx8egr0Nh4-HCfCH2S2xbQpDcj0Z7cEahCUSeT-cCFgK5wm4TWgwRlYdExPiqFtryBgGPk5evcnIEPMu18m-Eplj_tkk778WoXP23LblD0VzUlQ2a0G55xbYAp59NlIKEeGu4qJUa1nXAtKt2sV04retSOD2lImX1rbmjf2P6RCPO2BRpVHUWwUXDkto");'></div>
+<div class="flex flex-col p-4 gap-2">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold leading-tight">Job Application</h3>
+<span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500">Career</span>
+</div>
+<div class="space-y-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-snug">Professional cover letter template for software engineering roles.</p>
+<div class="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-300 text-sm italic line-clamp-2">"Dear Hiring Manager, I am writing to express my strong interest in the Senior Developer position..."</p>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-xs text-slate-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> 2 mins ago
+                    </span>
+<button class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors shadow-sm">
+                        Use Template
+                    </button>
+</div>
+</div>
+</div>
+<!-- Meeting Request Card -->
+<div class="group flex flex-col items-stretch justify-start rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="w-full bg-center bg-no-repeat aspect-[21/9] bg-cover" data-alt="People collaborating around a wooden table" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVpqWHOXspsEIjU5RdfEZdoejp0TnQz4wA5FKosffHjOTuf_YohbjAKGg1dYlZZmEOzx0e7dQ64YL4IleDbQB9RhxGcf3Tcdv1P2TUzPZJeK9elQjz4szfSshGn3yOM1w8XO6x9mK4F-nQnz0vs92EAc1GPnCpzrpd7Bqdtj5str2RR0lufyZlpz45eUB_q1rdC4kEfNNzVm_8NkRW07pxJVoeMyV505ged1_tmH93yPG8krl8vJsgscmQkVPCzj2Vmyj56S_MZQc");'></div>
+<div class="flex flex-col p-4 gap-2">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold leading-tight">Meeting Request</h3>
+<span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500">Business</span>
+</div>
+<div class="space-y-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-snug">Calendar invite and formal follow-up for stakeholder syncs.</p>
+<div class="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-300 text-sm italic line-clamp-2">"Hi Team, I'd like to schedule a quick sync to discuss the upcoming product roadmap and milestones..."</p>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-xs text-slate-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> 1 hour ago
+                    </span>
+<button class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors shadow-sm">
+                        Use Template
+                    </button>
+</div>
+</div>
+</div>
+<!-- Greeting Email Card -->
+<div class="group flex flex-col items-stretch justify-start rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="w-full bg-center bg-no-repeat aspect-[21/9] bg-cover" data-alt="Colorful mail envelopes background pattern" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpbaFi66zM8OlqPo5gXUFTRmN7u7Bn1a3n6lp35dRnCbcKPfrPGEj_g6VfWPhJkLjzxmU_XP8lI7ePR3QlOnAGvO-zOc-gfz7W9A3lC5ytj25R8wujC1tDmT0hSmcEz6AGwEkrWOB9EBaSiGihj_SJhKk5BaOlpN7tu7ch0h8xlcFn_fAafmMVMVimT6RV7XYxIjrSV0aks7R8ezmutJFp9aVydOfw3lc3e1rKKYp566Pv6mysF7UtcwOBf_a7_Z0ObvfeTpOwtmA");'></div>
+<div class="flex flex-col p-4 gap-2">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold leading-tight">Greeting Email</h3>
+<span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500">Social</span>
+</div>
+<div class="space-y-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-snug">Warm welcome or follow-up email for new networking contacts.</p>
+<div class="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-300 text-sm italic line-clamp-2">"It was great meeting you at the event yesterday! I really enjoyed our conversation about..."</p>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-xs text-slate-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> Yesterday
+                    </span>
+<button class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors shadow-sm">
+                        Use Template
+                    </button>
+</div>
+</div>
+</div>
+<div class="h-20"></div> <!-- Spacer for Nav -->
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pb-safe shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex items-center justify-around h-16 max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined font-variation-fill">folder</span>
+<span class="text-[10px] font-bold">Templates</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 transition-colors" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="text-[10px] font-medium">Drafts</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</a>
+</div>
+</nav>
+<style>
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .font-variation-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</body></html>

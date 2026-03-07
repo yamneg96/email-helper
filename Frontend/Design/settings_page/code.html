@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Email Assistant Settings</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 md:px-20 py-4 bg-white dark:bg-slate-900">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">mail</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em]">Email Assistant</h2>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Inbox</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Settings</a>
+</nav>
+<div class="bg-slate-200 dark:bg-slate-700 bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="User profile avatar close up photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBC-XfLKeRh5JEk4MQ1hXJyu6PdLSwpau4slQ9s-5-wqk5JG0TLHdcxEi--JTQ5A2w_yOiFAdayFBKuA26DLSicNwPPB7TgZC7fNKtW87MZxJN1Y0QsQggjr9M-OXaA0vrsNxiL74rzZ_yBFwam-heHTrKCKamA0s_KuDmGfMYgkOBLNF0X-i9rB2JRN1T1quTVA16VE5KkqQislKmcDhMRIqhQpolsMibiHvfm-0fBuii6hJXxA11NuX9FtsdHAAeEwhEUI4qD0Jw");'>
+</div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-10 px-4">
+<div class="layout-content-container flex flex-col max-w-[800px] flex-1 gap-8">
+<!-- Page Title -->
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-slate-100 text-4xl font-black leading-tight tracking-tight">Settings / ቅንብሮች</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Manage your account and preferences. / የመለያዎን ቅንብሮች እዚህ ያስተካክሉ።</p>
+</div>
+<!-- Profile Section (shadcn/ui Card style) -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h2 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person</span>
+                                Profile / መገለጫ
+                            </h2>
+</div>
+<div class="p-8 flex flex-col md:flex-row gap-8 items-start">
+<div class="flex flex-col items-center gap-4">
+<div class="relative group">
+<div class="size-32 rounded-full border-4 border-slate-100 dark:border-slate-800 overflow-hidden bg-slate-200">
+<img alt="Profile Picture" class="w-full h-full object-cover" data-alt="Modern professional headshot for profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZt0ZQsP6GQLWyu7tny5-EBIaht1cBFrZNYYXRlIvU1RkxnNnZp3_-BlmhjbvXCzFqjMKFDzTeiuzr4_fcf1WqUkpu_8GSZO7ToLAHST7Z5mYKHuipryxlUKr4m8Nj4kSonCwCPFvYOkgYlv0SuybB8TTQKP-fML1G1S0-hHh5uEdM60YNiBdozmed2-_jO3raR5nQomIqlkPy_s3DVpicsHx1-T7Z0sbAspUROiwglmlNfCeWfd59hAjYId7jpgy7yKQY6dtZq7k"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-sm leading-none">photo_camera</span>
+</button>
+</div>
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Update Photo</span>
+</div>
+<div class="flex-1 w-full space-y-6">
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300">Full Name / ሙሉ ስም</label>
+<input class="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" type="text" value="Abebe Kebede"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300">Email / ኢሜይል</label>
+<input class="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800/50 text-slate-500 cursor-not-allowed outline-none" disabled="" type="email" value="abebe.k@example.com"/>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors w-full md:w-auto">
+                                    Save Changes / ለውጦችን አስቀምጥ
+                                </button>
+</div>
+</div>
+</section>
+<!-- Language Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h2 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">translate</span>
+                                Language / ቋንቋ
+                            </h2>
+</div>
+<div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="relative flex cursor-pointer group">
+<input checked="" class="peer sr-only" name="lang" type="radio"/>
+<div class="w-full flex items-center justify-between p-6 rounded-xl border-2 border-slate-100 dark:border-slate-800 peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-2xl">🇺🇸</div>
+<div>
+<p class="font-bold text-lg">English</p>
+<p class="text-sm text-slate-500">Default System</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+</label>
+<label class="relative flex cursor-pointer group">
+<input class="peer sr-only" name="lang" type="radio"/>
+<div class="w-full flex items-center justify-between p-6 rounded-xl border-2 border-slate-100 dark:border-slate-800 peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-2xl">🇪🇹</div>
+<div>
+<p class="font-bold text-lg">Amharic / አማርኛ</p>
+<p class="text-sm text-slate-500">አማርኛ ቋንቋ</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Appearance Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h2 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">dark_mode</span>
+                                Appearance / ገጽታ
+                            </h2>
+</div>
+<div class="p-8">
+<div class="grid grid-cols-2 gap-4">
+<!-- Light Mode -->
+<button class="flex flex-col items-center gap-4 p-6 rounded-xl border-2 border-primary bg-primary/5 ring-4 ring-primary/10">
+<div class="size-16 rounded-full bg-yellow-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-yellow-600 text-3xl">light_mode</span>
+</div>
+<div class="text-center">
+<p class="font-bold">Light / ብሩህ</p>
+<p class="text-xs text-slate-500 uppercase tracking-widest font-semibold mt-1">Active</p>
+</div>
+</button>
+<!-- Dark Mode -->
+<button class="flex flex-col items-center gap-4 p-6 rounded-xl border-2 border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+<div class="size-16 rounded-full bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400 text-3xl">dark_mode</span>
+</div>
+<div class="text-center">
+<p class="font-bold">Dark / ጨለማ</p>
+<p class="text-xs text-slate-400 uppercase tracking-widest font-semibold mt-1">Select</p>
+</div>
+</button>
+</div>
+</div>
+</section>
+<!-- Danger Zone -->
+<div class="flex justify-center pt-4">
+<button class="flex items-center gap-2 text-red-500 font-bold hover:bg-red-50 dark:hover:bg-red-500/10 px-4 py-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">logout</span>
+                            Sign Out / ውጣ
+                        </button>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="mt-auto py-10 px-6 border-t border-slate-200 dark:border-slate-800 flex flex-col items-center gap-2 opacity-60">
+<p class="text-sm">Email Assistant v2.4.0</p>
+<div class="flex gap-4 text-xs">
+<a class="underline" href="#">Privacy / ግላዊነት</a>
+<a class="underline" href="#">Terms / ደንቦች</a>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

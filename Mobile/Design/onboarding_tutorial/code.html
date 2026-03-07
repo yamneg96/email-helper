@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email Writing Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4">
+<div class="max-w-md w-full bg-white dark:bg-slate-900 shadow-xl rounded-xl overflow-hidden flex flex-col h-[800px] max-h-[90vh]">
+<!-- Top App Bar -->
+<div class="flex items-center px-4 py-4 justify-between border-b border-slate-100 dark:border-slate-800">
+<button class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 px-2 text-center">Onboarding</h2>
+<button class="text-primary font-semibold text-sm px-3 py-1 hover:bg-primary/10 rounded-lg transition-colors">Skip</button>
+</div>
+<!-- Progress Indicator -->
+<div class="flex w-full flex-row items-center justify-center gap-3 py-6">
+<div class="h-2 w-8 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+<div class="h-2 w-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+</div>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto px-6">
+<!-- Featured Card -->
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800 overflow-hidden mb-6">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover bg-primary/10 flex items-center justify-center" data-alt="Digital illustration of a clean professional email interface" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAzx7HBpWLQHa20rZhE1UHq1EHKXYJTa1j1TEkwwK0WSuS9mcFyG0AHOu3Ng_X3xaVqc48buoLcER2ON2rsJ0_r86oxHEUjiNItjHX060rJWDwgojj8Pum3fXockp3FmLJObYw1MG1AX32DjR6MPrS6mDa9TWrC5L54TL6yTb7xRVmmMDcDhQa8XzRZ1SScN1CGQraA1dh3mPmQwvrQCMkCN0zuo_Gsu27jmIgr4bFlYBrPUxJnKcUorFVPfDYjSlF1i1zJr5vBRxs");'>
+<div class="bg-white/90 dark:bg-slate-900/90 p-4 rounded-lg shadow-lg">
+<span class="material-symbols-outlined text-primary text-4xl">alternate_email</span>
+</div>
+</div>
+<div class="flex w-full flex-col items-stretch justify-center gap-2 p-5">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight">How to write an email</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-relaxed">
+                        Learn the basics of composing professional messages in English and Amharic.
+                    </p>
+</div>
+</div>
+<!-- Side-by-Side Instructions -->
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800">
+<p class="text-primary text-xs font-bold uppercase tracking-wider">English</p>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-semibold">Subject Line</p>
+<p class="text-slate-600 dark:text-slate-400 text-xs">A clear summary of your email's purpose.</p>
+</div>
+<div class="flex flex-col gap-2 p-4 bg-primary/5 rounded-lg border border-primary/10">
+<p class="text-primary text-xs font-bold uppercase tracking-wider">Amharic</p>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-semibold">የጉዳዩ ርዕስ (Subject)</p>
+<p class="text-slate-600 dark:text-slate-400 text-xs">የኢሜልዎን አላማ በአጭሩ የሚገልጽ ርዕስ።</p>
+</div>
+</div>
+<!-- Step Description -->
+<div class="p-4 bg-white dark:bg-slate-800 border-l-4 border-primary rounded-r-lg">
+<p class="text-slate-800 dark:text-slate-200 text-base font-medium leading-relaxed">
+<span class="text-primary font-bold">Step 1:</span> Write a clear subject line. <br/>
+<span class="text-slate-500 font-normal">ደረጃ 1፡ ግልጽ የሆነ የጉዳዩን ርዕስ ይጻፉ።</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 flex gap-4">
+<button class="flex-1 px-6 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                Back
+            </button>
+<button class="flex-[2] px-6 py-4 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/25 hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                Continue
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

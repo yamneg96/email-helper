@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email Assistant - Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="w-10"></div> <!-- Spacer for balance -->
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Email Assistant</h2>
+<div class="flex items-center justify-end w-10">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100 cursor-pointer">help_outline</span>
+</div>
+</div>
+<!-- Hero Section -->
+<div class="flex flex-col flex-1">
+<div class="@container">
+<div class="@[480px]:px-4 @[480px]:py-3">
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-slate-200 dark:bg-slate-800 @[480px]:rounded-xl min-h-[400px] shadow-sm transition-all" data-alt="Modern abstract illustration of digital mail and communication connectivity" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCHjj9QqcpEHi9lU8Xoa7MwC-jWjfrk35s1F-hzMV69Zp_7vuvWTPnuLTrkh90fa3H6qgT5IJ-VW8dlokjBInhY9Dm2XS8GW5NtWGnKLTtwfj-Sq6VWAZIrtUg0dny8OhDih2MHvpo0WxxfLYBqfhpsyyyejREEKoUD2xNBAHjvkyPVE9yQ1D8b4LpdrbbFwS_8xsB27pVn5-xo5Av5sujbs-y-Ka0xpbt0nk3es9Ps7seZ2gVdd4XDiDlcJIeamOjoBYe5AJ2e-jw");'>
+</div>
+</div>
+</div>
+<!-- Content -->
+<div class="px-6 flex flex-col items-center max-w-2xl mx-auto">
+<h1 class="text-slate-900 dark:text-slate-100 tracking-tight text-[32px] md:text-[40px] font-bold leading-tight text-center pb-3 pt-8">
+                    Email made easy for everyone
+                </h1>
+<p class="text-slate-600 dark:text-slate-400 text-base md:text-lg font-normal leading-relaxed pb-8 pt-1 text-center max-w-md">
+                    Manage your inbox, draft perfect replies, and stay organized with your personal AI-powered email assistant.
+                </p>
+<!-- Action Area -->
+<div class="flex flex-col w-full gap-4 pb-12">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-primary text-white text-lg font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+<span class="truncate">Get Started</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 border-2 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-base font-semibold leading-normal hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all">
+<span class="truncate">I already have an account</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Feature Highlights (Subtle) -->
+<div class="grid grid-cols-3 gap-4 px-6 pb-12 max-w-2xl mx-auto">
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+<span class="text-xs font-medium text-slate-500">AI Powered</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary">security</span>
+</div>
+<span class="text-xs font-medium text-slate-500">Secure</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary">speed</span>
+</div>
+<span class="text-xs font-medium text-slate-500">Fast Setup</span>
+</div>
+</div>
+<div class="h-4 bg-background-light dark:bg-background-dark"></div>
+</div>
+</body></html>

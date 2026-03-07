@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email Assistant | የኢሜል ረዳት</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-4 md:px-20 lg:px-40">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Email Assistant</h1>
+<p class="text-xs font-medium text-primary uppercase">የኢሜል ረዳት</p>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-4 max-w-2xl ml-8">
+<div class="relative flex w-full max-w-md items-center">
+<span class="material-symbols-outlined absolute left-3 text-slate-400">search</span>
+<input class="w-full rounded-lg border-none bg-slate-100 dark:bg-slate-800 py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary" placeholder="Search emails... | ኢሜይሎችን ይፈልጉ..." type="text"/>
+</div>
+<button class="flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<div class="ml-4 flex items-center gap-3">
+<div class="hidden md:block text-right">
+<p class="text-sm font-semibold">User Profile</p>
+<p class="text-xs text-slate-500">መገለጫ</p>
+</div>
+<div class="h-10 w-10 rounded-full border-2 border-primary/20 bg-slate-200 dark:bg-slate-700" data-alt="User profile avatar icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeNtXq9unZ7r1Ffgw3F4NpPVk0TuNpwNL8LgENYIHmgfmMjC82nrwX6vR99iCSXS36utchgzJIjACMg68WNdC-hCfECGsh-AVDSGqtpYEz0Taq7DtbOLCMLjZwCUZ3v6f-y0mRr0ZzHDaBVzsRwGQa06BcmtaAVgo2B81lx4msy-XjG1vUDpI6TaYSSGPS6CE2XK3--Xj1T26KwI9Jpc4i1KrB5oBBF0vKDNp__jYcvrJSn8dXV7R32bHSf76jAq2w-eXBQTEtTyo');"></div>
+</div>
+</header>
+<!-- Main Layout -->
+<div class="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-6 p-4 md:flex-row md:p-8">
+<!-- Sidebar Navigation -->
+<aside class="w-full shrink-0 md:w-64">
+<button class="mb-6 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined">edit</span>
+<span>Compose | ይፃፉ</span>
+</button>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center justify-between rounded-lg bg-primary/10 px-4 py-3 text-primary" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">inbox</span>
+<span class="font-semibold text-sm">Inbox | ገቢ መልዕክት</span>
+</div>
+<span class="rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold text-white">12</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">send</span>
+<span class="text-sm font-medium">Sent | የተላኩ</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined)draft&lt;/span&gt; &lt;span class=" font-medium"="" text-sm="">Drafts | ረቂቆች</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">delete</span>
+<span class="text-sm font-medium">Trash | መጣያ</span>
+</a>
+<div class="my-4 border-t border-slate-200 dark:border-slate-800"></div>
+<p class="px-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">Settings | ቅንብሮች</p>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">translate</span>
+<span class="text-sm font-medium">Language | ቋንቋ</span>
+</a>
+</nav>
+</aside>
+<!-- Content Area: Email List -->
+<main class="flex flex-1 flex-col gap-4">
+<!-- Filter Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="flex shrink-0 items-center gap-1 rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-white">
+                        All | ሁሉም
+                    </button>
+<button class="flex shrink-0 items-center gap-1 rounded-full bg-slate-200 dark:bg-slate-800 px-4 py-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-300 transition-colors">
+                        Unread | ያልተነበቡ
+                    </button>
+<button class="flex shrink-0 items-center gap-1 rounded-full bg-slate-200 dark:bg-slate-800 px-4 py-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-300 transition-colors">
+                        Primary | ዋና
+                    </button>
+<button class="flex shrink-0 items-center gap-1 rounded-full bg-slate-200 dark:bg-slate-800 px-4 py-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-300 transition-colors">
+                        Social | ማህበራዊ
+                    </button>
+</div>
+<!-- List of Email Cards -->
+<div class="flex flex-col gap-3">
+<!-- Email Card 1 (Unread) -->
+<div class="group relative flex cursor-pointer flex-col gap-1 rounded-xl border-l-4 border-l-primary bg-white dark:bg-slate-900 p-4 shadow-sm hover:shadow-md transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">AB</div>
+<div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-slate-100">Abebe Balcha | አበበ ባልቻ</h3>
+<p class="text-xs font-semibold text-primary">Project Update | የፕሮጀክት ዝመና</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[11px] font-bold text-primary">Oct 12</span>
+<span class="material-symbols-outlined text-sm text-primary">fiber_manual_record</span>
+</div>
+</div>
+<div class="mt-2 pl-13">
+<p class="line-clamp-1 text-sm text-slate-500 dark:text-slate-400">
+                                Here is the latest update on the task. We have completed the initial phase... | ስለ ስራው የቅርብ ጊዜ መረጃ ይኸውና...
+                            </p>
+</div>
+</div>
+<!-- Email Card 2 -->
+<div class="group relative flex cursor-pointer flex-col gap-1 rounded-xl border-l-4 border-l-transparent bg-white dark:bg-slate-900 p-4 shadow-sm hover:shadow-md transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 font-bold">MS</div>
+<div>
+<h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">Martha Samuel | ማርታ ሳሙኤል</h3>
+<p class="text-xs font-medium text-slate-600 dark:text-slate-400">Meeting Schedule | የስብሰባ መርሃ ግብር</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[11px] font-medium text-slate-400">Oct 11</span>
+</div>
+</div>
+<div class="mt-2 pl-13">
+<p class="line-clamp-1 text-sm text-slate-500 dark:text-slate-400">
+                                Can we meet tomorrow at 10 AM? I want to discuss the budget... | ነገ ጠዋት 4 ሰዓት ላይ መገናኘት እንችላለን?
+                            </p>
+</div>
+</div>
+<!-- Email Card 3 -->
+<div class="group relative flex cursor-pointer flex-col gap-1 rounded-xl border-l-4 border-l-transparent bg-white dark:bg-slate-900 p-4 shadow-sm hover:shadow-md transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 font-bold">TK</div>
+<div>
+<h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">Tadesse Kassaye | ታደሰ ካሳዬ</h3>
+<p class="text-xs font-medium text-slate-600 dark:text-slate-400">Invoice #2044 | ደረሰኝ ቁጥር 2044</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[11px] font-medium text-slate-400">Oct 09</span>
+</div>
+</div>
+<div class="mt-2 pl-13">
+<p class="line-clamp-1 text-sm text-slate-500 dark:text-slate-400">
+                                Please find the attached invoice for last month's services... | እባክዎን ያለፈው ወር የአገልግሎት ደረሰኝ ያያይዙ...
+                            </p>
+</div>
+</div>
+<!-- Email Card 4 -->
+<div class="group relative flex cursor-pointer flex-col gap-1 rounded-xl border-l-4 border-l-transparent bg-white dark:bg-slate-900 p-4 shadow-sm hover:shadow-md transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 font-bold">HR</div>
+<div>
+<h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">HR Department | የሰው ኃይል ክፍል</h3>
+<p class="text-xs font-medium text-slate-600 dark:text-slate-400">Holiday Notice | የበዓል ማስታወቂያ</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[11px] font-medium text-slate-400">Oct 08</span>
+</div>
+</div>
+<div class="mt-2 pl-13">
+<p class="line-clamp-1 text-sm text-slate-500 dark:text-slate-400">
+                                The office will be closed on Monday for the national holiday... | ብሔራዊ በዓል ምክንያት ሰኞ ቢሮው ዝግ ይሆናል...
+                            </p>
+</div>
+</div>
+</div>
+<!-- Empty State Suggestion (Modern Touch) -->
+<div class="mt-4 rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-800 p-8 text-center">
+<div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/5 text-primary">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<h4 class="text-sm font-bold">Need help responding? | መልስ ለመስጠት እርዳታ ይፈልጋሉ?</h4>
+<p class="mt-1 text-xs text-slate-500">Select an email to see AI suggestions. | AI ጥቆማዎችን ለማየት ኢሜል ይምረጡ።</p>
+</div>
+</main>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email Assistant Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-primary rounded-xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h1 class="font-bold text-lg leading-none">Email Assistant</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Beginner Friendly</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">inbox</span>
+<span>Inbox</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">send</span>
+<span>Sent Items</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Templates</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<div class="mt-4 flex items-center gap-3 px-3 py-2">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img alt="User Profile" data-alt="User profile illustration avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZRpV5o-g2cWP0w592vVDravBqkCh-j_wdLMdUDZGSoeIQsY4CT99u7lY5Gi2k77ZrvMkQJ-LDlnrSVtDisKeb3aQRfZk5mfOah6l_qng9zfOcuRFA-GAliUT39T6ZIJ6kDzdwIzpzjblATcsMXaj2CjRi1MZWnOLE1kSRtaprYu12BYN97XqqwkW4vcM6c8No2eN5ED3LaHzDpcFDJzxUNbx0LUsCcNwbUF5JOcyHKD2lDYEnQwO5te6ic665HPra-Hzfweewem0"/>
+</div>
+<div class="text-sm font-medium">Alex Doe</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-8">
+<header class="mb-10">
+<h2 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-slate-50">
+                    Welcome, User! / ሰላም!
+                </h2>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">
+                    What would you like to do today? / ዛሬ ምን ማድረግ ይፈልጋሉ?
+                </p>
+</header>
+<!-- Action Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+<!-- Action Card 1: Compose -->
+<button class="group flex flex-col items-start p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary hover:shadow-lg hover:shadow-primary/10 transition-all text-left">
+<div class="size-14 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined !text-3xl">edit_square</span>
+</div>
+<h3 class="text-xl font-bold mb-1">Compose Email</h3>
+<h4 class="text-lg font-medium text-primary mb-2">ኢሜይል ጻፍ</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Start writing a new message from scratch.
+                    </p>
+</button>
+<!-- Action Card 2: Inbox -->
+<button class="group flex flex-col items-start p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary hover:shadow-lg hover:shadow-primary/10 transition-all text-left">
+<div class="size-14 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined !text-3xl">mail</span>
+</div>
+<h3 class="text-xl font-bold mb-1">Inbox</h3>
+<h4 class="text-lg font-medium text-primary mb-2">የገቡ መልእክቶች</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Check and read the messages you have received.
+                    </p>
+</button>
+<!-- Action Card 3: Templates -->
+<button class="group flex flex-col items-start p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary hover:shadow-lg hover:shadow-primary/10 transition-all text-left">
+<div class="size-14 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined !text-3xl">auto_awesome</span>
+</div>
+<h3 class="text-xl font-bold mb-1">Templates</h3>
+<h4 class="text-lg font-medium text-primary mb-2">ቅጽ</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Use pre-written drafts to save time.
+                    </p>
+</button>
+<!-- Action Card 4: Sent -->
+<button class="group flex flex-col items-start p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary hover:shadow-lg hover:shadow-primary/10 transition-all text-left">
+<div class="size-14 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined !text-3xl">send</span>
+</div>
+<h3 class="text-xl font-bold mb-1">Sent Emails</h3>
+<h4 class="text-lg font-medium text-primary mb-2">የተላኩ መልእክቶች</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        View all the messages you have sent out.
+                    </p>
+</button>
+</div>
+<!-- Simple Status Bar -->
+<div class="mt-12 p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="size-3 rounded-full bg-green-500"></div>
+<div>
+<p class="text-xs font-semibold uppercase tracking-wider text-slate-500">System Status</p>
+<p class="text-sm font-medium">Assistant is online and ready</p>
+</div>
+</div>
+<div class="flex gap-8">
+<div class="text-center">
+<p class="text-2xl font-bold text-primary">5</p>
+<p class="text-xs font-medium text-slate-500 uppercase">New Emails</p>
+</div>
+<div class="text-center border-l border-slate-200 dark:border-slate-800 pl-8">
+<p class="text-2xl font-bold text-primary">12</p>
+<p class="text-xs font-medium text-slate-500 uppercase">Sent Today</p>
+</div>
+</div>
+<button class="px-6 py-2.5 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors shadow-md shadow-primary/20">
+                    Quick Help
+                </button>
+</div>
+<!-- Graphic Element -->
+<div class="mt-12 rounded-2xl overflow-hidden relative h-48 bg-primary/5 flex items-center px-10">
+<div class="max-w-md relative z-10">
+<h3 class="text-2xl font-bold text-slate-800 dark:text-slate-100">AI-Powered Assistance</h3>
+<p class="text-slate-600 dark:text-slate-400 mt-2">Our smart assistant helps you write better emails in English and Amharic automatically.</p>
+</div>
+<div class="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 flex items-center justify-center">
+<span class="material-symbols-outlined !text-[12rem]">smart_toy</span>
+</div>
+</div>
+</main>
+</div>
+</body></html>

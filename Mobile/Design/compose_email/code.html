@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html class="light" lang="am"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ኢሜይል ይጻፉ | Compose Email</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="max-w-2xl mx-auto min-h-screen bg-white dark:bg-slate-900 shadow-sm flex flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">close</span>
+</button>
+<h1 class="text-lg font-semibold tracking-tight">ኢሜይል ይጻፉ <span class="text-sm font-normal text-slate-500 ml-1">(Compose)</span></h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Form Content -->
+<main class="flex-1 flex flex-col p-4 md:p-6 space-y-6">
+<!-- Recipient Field -->
+<div class="space-y-2">
+<label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="to">
+                    ለማን (To)
+                </label>
+<div class="relative">
+<input class="flex h-12 w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all" id="to" placeholder="የተቀባይ ኢሜይል (example@mail.com)" type="email"/>
+</div>
+</div>
+<!-- Subject Field -->
+<div class="space-y-2">
+<label class="text-sm font-medium leading-none" for="subject">
+                    ርዕስ (Subject)
+                </label>
+<input class="flex h-12 w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 py-2 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all" id="subject" placeholder="የኢሜይሉ ርዕስ" type="text"/>
+</div>
+<!-- Message Body -->
+<div class="flex-1 flex flex-col space-y-2 min-h-[300px]">
+<label class="text-sm font-medium leading-none" for="message">
+                    መልእክት (Message)
+                </label>
+<textarea class="flex-1 w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 resize-none transition-all leading-relaxed" id="message" placeholder="መልእክትዎን እዚህ ይጻፉ..."></textarea>
+</div>
+</main>
+<!-- Bottom Actions -->
+<footer class="p-4 md:p-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+<div class="flex flex-col sm:flex-row gap-3">
+<button class="inline-flex flex-1 items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary h-12 px-6 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-700 shadow-sm">
+<span class="material-symbols-outlined mr-2 text-[20px]">attach_file</span>
+                    ፋይል አክል (Attach File)
+                </button>
+<button class="inline-flex flex-1 items-center justify-center whitespace-nowrap rounded-lg text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary h-12 px-6 py-2 bg-primary text-white hover:bg-primary/90 shadow-md">
+<span class="material-symbols-outlined mr-2 text-[20px]">send</span>
+                    ላክ (Send)
+                </button>
+</div>
+<div class="mt-4 flex items-center justify-center gap-4 text-slate-400">
+<button class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+<span class="material-symbols-outlined">format_bold</span>
+</button>
+<button class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+<span class="material-symbols-outlined">format_italic</span>
+</button>
+<button class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+<span class="material-symbols-outlined">link</span>
+</button>
+<button class="hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+<span class="material-symbols-outlined">image</span>
+</button>
+<div class="w-px h-4 bg-slate-200 dark:border-slate-700"></div>
+<button class="hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete_outline</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>
