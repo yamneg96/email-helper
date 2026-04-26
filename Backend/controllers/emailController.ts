@@ -66,6 +66,9 @@ export const sendEmail = async (
     const { to, subject, body, templateId, language, attachments } =
       req.body as SendEmailBody;
 
+    console.log(`[sendEmail] Request received from user ${req.user._id}`);
+    console.log(`[sendEmail] To: ${to}, Subject: ${subject}, Attachments count: ${attachments?.length || 0}`);
+
     if (!to) {
       res.status(400).json({
         message: {
@@ -124,6 +127,7 @@ export const sendEmail = async (
     let threadId = "";
 
     try {
+      console.log("[sendEmail] Attempting to send via Gmail API...");
       const gmail = getGmailService(req.user.gmailTokens);
       const result = await gmail.users.messages.send({
         userId: "me",
@@ -132,17 +136,26 @@ export const sendEmail = async (
 
       sentMessageId = result.data.id || "";
       threadId = result.data.threadId || "";
+      console.log(`[sendEmail] Successfully sent via Gmail API, messageId: ${sentMessageId}`);
     } catch (gmailError) {
+      console.error("[sendEmail] Gmail API failed:", gmailError);
       // If Gmail API fails (token/config), fallback to nodemailer with Gmail OAuth2.
-      await sendWithNodemailerFallback({
-        from: fromEmail,
-        to,
-        subject: finalSubject,
-        text: finalBody,
-        ...(attachments ? { attachments } : {}),
-      });
-
-      sentMessageId = "fallback-nodemailer";
+      try {
+        console.log("[sendEmail] Attempting fallback to Nodemailer...");
+        await sendWithNodemailerFallback({
+          from: fromEmail,
+          to,
+          subject: finalSubject,
+          text: finalBody,
+          ...(attachments ? { attachments } : {}),
+        });
+        
+        sentMessageId = "fallback-nodemailer";
+        console.log("[sendEmail] Successfully sent via Nodemailer fallback");
+      } catch (fallbackError) {
+        console.error("[sendEmail] Nodemailer fallback also failed:", fallbackError);
+        throw fallbackError;
+      }
     }
 
     const created = await Email.create({
@@ -170,6 +183,7 @@ export const sendEmail = async (
       email: created,
     });
   } catch (error) {
+    console.error("[sendEmail] Unhandled error:", error);
     next(error);
   }
 };

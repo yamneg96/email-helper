@@ -9,5 +9,5 @@ export const connectDB = async (): Promise<void> => {
 
   await mongoose.connect(mongoUri);
   // eslint-disable-next-line no-console
-  console.log("MongoDB connected successfully.");
+  console.log("MongoDB connected successfully. ✅");
 };

@@ -7,6 +7,7 @@ export default function InboxPage() {
   const { token } = useAuth();
   const [items, setItems] = useState<InboxItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -36,15 +37,27 @@ export default function InboxPage() {
         {items.map((item) => (
           <article
             key={item.messageId}
-            className="rounded-xl border border-border bg-card p-4"
+            onClick={() => setExpandedId(expandedId === item.messageId ? null : item.messageId)}
+            className="rounded-xl border border-border bg-card p-4 cursor-pointer hover:bg-muted/50 transition-colors"
           >
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
               <p className="font-bold">{item.sender}</p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-sm text-primary font-semibold">
                 {item.subject || "(No subject)"}
               </p>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">{item.snippet}</p>
+            {expandedId === item.messageId ? (
+              <div className="mt-4 border-t pt-4 text-sm whitespace-pre-wrap text-foreground">
+                <div className="mb-2 text-xs text-muted-foreground break-all">
+                  <strong>To:</strong> {item.recipient}
+                </div>
+                {item.snippet || "(No content)"}
+              </div>
+            ) : (
+              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                {item.snippet || "(No content)"}
+              </p>
+            )}
           </article>
         ))}
       </div>

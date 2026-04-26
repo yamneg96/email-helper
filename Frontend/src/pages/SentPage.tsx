@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function SentPage() {
   const { token } = useAuth();
   const [items, setItems] = useState<EmailItem[]>([]);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -27,13 +28,25 @@ export default function SentPage() {
         {items.map((item) => (
           <article
             key={item._id}
-            className="rounded-xl border border-border bg-card p-4"
+            onClick={() => setExpandedId(expandedId === item._id ? null : item._id)}
+            className="rounded-xl border border-border bg-card p-4 cursor-pointer hover:bg-muted/50 transition-colors"
           >
-            <p className="font-bold">To: {item.recipient}</p>
-            <p className="text-sm text-primary">{item.subject}</p>
-            <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-              {item.body}
-            </p>
+            <div className="flex items-center justify-between gap-2">
+              <p className="font-bold">To: {item.recipient}</p>
+              <span className="text-xs text-muted-foreground">
+                {new Date(item.createdAt).toLocaleString()}
+              </span>
+            </div>
+            <p className="text-sm text-primary font-semibold">{item.subject}</p>
+            {expandedId === item._id ? (
+              <div className="mt-4 border-t pt-4 text-sm whitespace-pre-wrap text-foreground">
+                {item.body || "(No content)"}
+              </div>
+            ) : (
+              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                {item.body || "(No content)"}
+              </p>
+            )}
           </article>
         ))}
       </div>

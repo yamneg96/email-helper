@@ -15,12 +15,29 @@ dotenv.config();
 const app = express();
 const port = Number(process.env.PORT) || 5000;
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:8081",
+];
+
 app.use(
   cors({
-    origin: true,
+    origin: (origin, callback) => {
+      // Allow Postman, server-to-server calls
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("CORS not allowed"));
+    },
     credentials: true,
-  }),
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
 );
+
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());

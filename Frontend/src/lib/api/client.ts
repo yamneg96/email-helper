@@ -27,12 +27,23 @@ async function request<T>(
     credentials: "include",
   });
 
-  const data = (await response.json()) as { message?: { en?: string } } & T;
-  if (!response.ok) {
-    throw new Error(data.message?.en || "Request failed.");
+  let data: any;
+  try {
+    data = await response.json();
+  } catch (e) {
+    console.error(`[apiClient] Failed to parse JSON for ${path}. Status: ${response.status}`);
+    if (!response.ok) {
+       throw new Error(`HTTP Error ${response.status}`);
+    }
+    throw e;
   }
 
-  return data;
+  if (!response.ok) {
+    console.error(`[apiClient] Request failed for ${path}:`, data);
+    throw new Error(data?.message?.en || data?.message || "Request failed.");
+  }
+
+  return data as { message?: { en?: string } } & T;
 }
 
 export const apiClient = {

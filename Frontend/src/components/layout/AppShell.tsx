@@ -87,7 +87,7 @@ export default function AppShell() {
             <button
               type="button"
               onClick={onSignOut}
-              className="rounded-lg border border-border px-3 py-1 text-xs font-semibold hover:bg-secondary"
+              className="text-red-500 rounded-lg border border-border px-3 py-1 text-xs font-semibold hover:bg-secondary"
             >
               Sign Out / ውጣ
             </button>

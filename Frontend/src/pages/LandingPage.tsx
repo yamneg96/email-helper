@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, Sparkles, ShieldCheck, Zap } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import ThemeToggleButton from "@/components/ui/theme-toggle-button";
 
 export default function LandingPage() {
   return (
@@ -17,6 +18,7 @@ export default function LandingPage() {
           <Link to="/signin">
             <Button className="font-bold">Get Started / ጀምር</Button>
           </Link>
+          <ThemeToggleButton />
         </div>
       </header>
 

@@ -73,6 +73,7 @@ export default function ComposePage() {
     setMessage("");
 
     try {
+      console.log("[ComposePage] Sending email payload...");
       const response = await apiClient.sendEmail(token, {
         to,
         subject,
@@ -81,12 +82,14 @@ export default function ComposePage() {
         attachments,
       });
 
-      setMessage(response.message.en);
+      console.log("[ComposePage] Email sent successfully:", response);
+      setMessage(response.message?.en || "Email sent successfully.");
       setTo("");
       setSubject("");
       setBody("");
       setAttachments([]);
     } catch (error) {
+      console.error("[ComposePage] onSend error:", error);
       setMessage(
         error instanceof Error ? error.message : "Failed to send email.",
       );

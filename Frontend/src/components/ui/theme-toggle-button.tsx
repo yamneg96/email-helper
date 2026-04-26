@@ -1,5 +1,6 @@
 import React from "react";
 import { useThemeStore } from "@/shared/hooks/useThemeStore";
+import {Sun, Moon} from 'lucide-react'
 
 export default function ThemeToggleButton(): React.ReactElement {
   const theme = useThemeStore((state) => state.theme);
@@ -16,9 +17,8 @@ export default function ThemeToggleButton(): React.ReactElement {
       title={isDark ? "Switch to light theme" : "Switch to dark theme"}
     >
       <span className="material-symbols-outlined text-[16px]">
-        {isDark ? "light_mode" : "dark_mode"}
+        {isDark ? <Sun /> : <Moon />}
       </span>
-      <span>{isDark ? "Light" : "Dark"}</span>
     </button>
   );
 }
