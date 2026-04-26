@@ -4,7 +4,6 @@ import {
   Sparkles,
   ShieldCheck,
   Globe,
-  ArrowRight,
   Check,
 } from "lucide-react";
 import React from "react";
