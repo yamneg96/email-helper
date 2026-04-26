@@ -28,6 +28,13 @@ export interface UserProfile {
   };
 }
 
+export interface AttachmentMetadata {
+  filename: string;
+  mimeType: string;
+  size: number;
+  attachmentId?: string;
+}
+
 export interface InboxItem {
   messageId: string;
   threadId: string;
@@ -35,6 +42,7 @@ export interface InboxItem {
   recipient: string;
   subject: string;
   snippet: string;
+  attachments?: AttachmentMetadata[];
 }
 
 export interface EmailItem {
@@ -45,6 +53,7 @@ export interface EmailItem {
   body: string;
   status: "sent" | "received";
   createdAt: string;
+  attachments?: AttachmentMetadata[];
 }
 
 export interface TemplateItem {

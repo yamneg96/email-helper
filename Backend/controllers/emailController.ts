@@ -112,7 +112,7 @@ export const sendEmail = async (
       return;
     }
 
-    const fromEmail = process.env.DEFAULT_FROM_EMAIL || req.user.email;
+    const fromEmail = req.user.email;
 
     // Build RFC822 MIME payload for Gmail API, including optional attachments.
     const raw = buildRawMimeMessage({
@@ -168,6 +168,7 @@ export const sendEmail = async (
         filename: item.filename,
         mimeType: item.mimeType,
         size: Buffer.from(item.contentBase64, "base64").length,
+        contentBase64: item.contentBase64,
       })),
       status: "sent",
       messageId: sentMessageId,
@@ -217,7 +218,7 @@ export const replyEmail = async (
       return;
     }
 
-    const fromEmail = process.env.DEFAULT_FROM_EMAIL || req.user.email;
+    const fromEmail = req.user.email;
     const finalSubject = subject || "Re: Reply";
 
     const raw = buildRawMimeMessage({
@@ -289,6 +290,7 @@ export const fetchInbox = async (
       userId: "me",
       maxResults: 20,
       labelIds: ["INBOX"],
+      q: `to:${req.user.email}`,
     });
 
     const messageIds = listResult.data.messages || [];
@@ -297,14 +299,28 @@ export const fetchInbox = async (
         gmail.users.messages.get({
           userId: "me",
           id: item.id || "",
-          format: "metadata",
-          metadataHeaders: ["From", "To", "Subject"],
+          format: "full",
         }),
       ),
     );
 
     const normalized = messages.map((msg) => {
       const headers = msg.data.payload?.headers;
+      
+      const attachments: any[] = [];
+      if (msg.data.payload?.parts) {
+        msg.data.payload.parts.forEach(part => {
+          if (part.filename && part.body?.attachmentId) {
+            attachments.push({
+              filename: part.filename,
+              mimeType: part.mimeType || "application/octet-stream",
+              size: part.body?.size || 0,
+              attachmentId: part.body.attachmentId
+            });
+          }
+        });
+      }
+
       return {
         messageId: msg.data.id || "",
         threadId: msg.data.threadId || "",
@@ -312,6 +328,7 @@ export const fetchInbox = async (
         recipient: parseHeader(headers, "To"),
         subject: parseHeader(headers, "Subject"),
         snippet: msg.data.snippet || "",
+        attachments,
       };
     });
 
@@ -332,6 +349,7 @@ export const fetchInbox = async (
             messageId: item.messageId,
             threadId: item.threadId,
             language: req.user?.language || "en",
+            attachments: item.attachments,
           } as Record<string, unknown>,
           { upsert: true, new: true, setDefaultsOnInsert: true },
         ),
@@ -367,6 +385,7 @@ export const fetchSent = async (
     }
 
     const sentItems = await Email.find({ userId: req.user._id, status: "sent" })
+      .select('-attachments.contentBase64')
       .sort({ createdAt: -1 })
       .limit(50);
 
@@ -400,7 +419,7 @@ export const sendTestEmail = async (
 
     const targetEmail = req.user.email;
     const gmail = getGmailService(req.user.gmailTokens);
-    const fromEmail = process.env.DEFAULT_FROM_EMAIL || req.user.email;
+    const fromEmail = req.user.email;
 
     const raw = buildRawMimeMessage({
       from: fromEmail,
@@ -420,6 +439,77 @@ export const sendTestEmail = async (
         am: "የሙከራ ኢሜይል በተሳካ ሁኔታ ተልኳል።",
       },
       gmailMessageId: sent.data.id,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const downloadInboxAttachment = async (
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  try {
+    if (!req.user) {
+      res.status(401).json({ message: { en: "Unauthorized." } });
+      return;
+    }
+
+    const messageId = req.params.messageId as string;
+    const attachmentId = req.params.attachmentId as string;
+    const gmail = getGmailService(req.user.gmailTokens);
+    
+    const attachment = await gmail.users.messages.attachments.get({
+      userId: "me",
+      messageId,
+      id: attachmentId,
+    });
+
+    if (!attachment.data || typeof attachment.data.data !== 'string') {
+      res.status(404).json({ message: { en: "Attachment data not found." } });
+      return;
+    }
+
+    const base64Data = attachment.data.data.replace(/-/g, '+').replace(/_/g, '/');
+
+    res.status(200).json({
+      message: { en: "Attachment fetched." },
+      data: base64Data
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const downloadSentAttachment = async (
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  try {
+    if (!req.user) {
+      res.status(401).json({ message: { en: "Unauthorized." } });
+      return;
+    }
+
+    const { emailId, filename } = req.params;
+    const email = await Email.findOne({ _id: emailId, userId: req.user._id });
+
+    if (!email) {
+      res.status(404).json({ message: { en: "Email not found." } });
+      return;
+    }
+
+    const attachment = email.attachments.find(a => a.filename === filename);
+    if (!attachment || !attachment.contentBase64) {
+      res.status(404).json({ message: { en: "Attachment content not found." } });
+      return;
+    }
+
+    res.status(200).json({
+      message: { en: "Attachment fetched." },
+      data: attachment.contentBase64
     });
   } catch (error) {
     next(error);

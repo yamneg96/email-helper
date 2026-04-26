@@ -100,11 +100,13 @@ export const apiClient = {
       }>;
     },
   ) {
+    const idempotencyKey = `send-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
     return request<ApiEnvelope<EmailItem>>(
       "/email/send",
       {
         method: "POST",
         body: JSON.stringify(payload),
+        headers: { "X-Idempotency-Key": idempotencyKey },
       },
       token,
     );
@@ -189,6 +191,21 @@ export const apiClient = {
         body: JSON.stringify(payload),
       },
       token,
+    );
+  },
+  async downloadInboxAttachment(token: string, messageId: string, attachmentId: string) {
+    return request<ApiEnvelope<never> & { data: string }>(
+      `/email/attachment/${messageId}/${attachmentId}`,
+      { method: "GET" },
+      token
+    );
+  },
+
+  async downloadSentAttachment(token: string, emailId: string, filename: string) {
+    return request<ApiEnvelope<never> & { data: string }>(
+      `/email/local-attachment/${emailId}/${encodeURIComponent(filename)}`,
+      { method: "GET" },
+      token
     );
   },
 };

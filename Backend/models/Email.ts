@@ -5,6 +5,8 @@ const attachmentSchema = new Schema(
     filename: { type: String, required: true },
     mimeType: { type: String, required: true },
     size: { type: Number, required: true },
+    contentBase64: { type: String },
+    attachmentId: { type: String },
   },
   { _id: false },
 );

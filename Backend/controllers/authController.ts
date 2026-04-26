@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import { verifyGoogleIdToken } from "../config/gmail";
 import { AuthenticatedRequest } from "../middleware/authMiddleware";
 import { GmailTokens, User } from "../models/User";
+import { Template } from "../models/Template";
 
 interface LoginBody {
   idToken?: string;
@@ -90,6 +91,31 @@ export const login = async (
             }
           : {}),
       });
+
+      // Seed default worker report templates for new users
+      await Template.insertMany([
+        {
+          userId: user._id,
+          name: "Daily Work Report",
+          subject: "Daily Progress Report - {{date}}",
+          body: "Hello Manager,\n\nHere is my daily report for today:\n\nTasks Completed:\n1. \n2. \n\nPending Tasks:\n- \n\nIssues/Blockers:\n- None\n\nBest regards,\n" + userName,
+          language: "en",
+        },
+        {
+          userId: user._id,
+          name: "የዕለት የስራ ሪፖርት",
+          subject: "የዕለት የስራ ሪፖርት - {{date}}",
+          body: "ሰላም ኃላፊ፣\n\nየዛሬው የስራ ሪፖርቴ ይህን ይመስላል:\n\nየተሰሩ ስራዎች:\n1. \n2. \n\nቀሪ ስራዎች:\n- \n\nያጋጠሙ ችግሮች:\n- የሉም\n\nከሠላምታ ጋር፣\n" + userName,
+          language: "am",
+        },
+        {
+          userId: user._id,
+          name: "Weekly Status Update",
+          subject: "Weekly Status Update: [Project Name]",
+          body: "Hi Team,\n\nHere is the summary of what was achieved this week:\n\nKey Achievements:\n- \n- \n\nNext Week's Plan:\n- \n- \n\nThanks,\n" + userName,
+          language: "en",
+        }
+      ]);
     } else if (!idToken) {
       if (!password) {
         res.status(400).json({

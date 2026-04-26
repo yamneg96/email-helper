@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/context/AuthContext";
-import { Mail } from "lucide-react";
+import { Mail, ShieldCheck } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -31,49 +31,97 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="w-full max-w-md space-y-6 rounded-xl border border-border bg-card p-8 shadow-lg">
-        <div className="space-y-2 text-center">
-          <div className="mx-auto inline-flex rounded-xl bg-primary/10 p-3 text-primary">
-            <Mail className="size-8" />
+    <div className="flex min-h-screen items-center justify-center bg-secondary/50 px-4">
+      <div className="w-full max-w-md">
+        {/* Logo */}
+        <div className="mb-8 flex flex-col items-center gap-3">
+          <div className="flex size-16 items-center justify-center rounded-xl bg-primary/10">
+            <Mail className="size-8 text-primary" />
           </div>
-          <h1 className="text-2xl font-bold">Sign In / ይግቡ</h1>
-          <p className="text-sm text-muted-foreground">
-            Google-style quick login for demo backend integration.
-          </p>
+          <div className="text-center">
+            <h1 className="text-2xl font-bold">Email Assistant</h1>
+            <p className="text-sm text-muted-foreground">
+              Your intelligent inbox companion / የእርስዎ ብልህ የኢሜል ረዳት
+            </p>
+          </div>
         </div>
 
-        <form className="space-y-4" onSubmit={onSubmit}>
-          <div className="space-y-2">
-            <label className="text-sm font-semibold">Name / ስም</label>
-            <Input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Abebe Kebede"
-            />
+        {/* Card */}
+        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg">
+          <div className="p-8">
+            <div className="mb-8 text-center">
+              <h2 className="text-xl font-semibold">Sign In / ይግቡ</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Access your account to get started / ለመጀመር ወደ መለያዎ ይግቡ
+              </p>
+            </div>
+
+            <form className="space-y-4" onSubmit={onSubmit}>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold">Name / ስም</label>
+                <Input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Abebe Kebede"
+                  className="h-12"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold">Email / ኢሜይል</label>
+                <Input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@email.com"
+                  required
+                  className="h-12"
+                />
+              </div>
+
+              {error ? (
+                <p className="text-sm text-red-500">{error}</p>
+              ) : null}
+
+              <Button
+                className="h-12 w-full text-base font-bold"
+                disabled={loading}
+                type="submit"
+              >
+                {loading
+                  ? "Signing in..."
+                  : "Sign in with Google / በGoogle ይግቡ"}
+              </Button>
+            </form>
           </div>
 
-          <div className="space-y-2">
-            <label className="text-sm font-semibold">Email / ኢሜይል</label>
-            <Input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="name@email.com"
-              required
-            />
+          {/* Privacy Footer */}
+          <div className="border-t border-border bg-secondary/50 p-6">
+            <div className="flex gap-3">
+              <ShieldCheck className="size-5 shrink-0 text-primary" />
+              <div className="space-y-2">
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  <span className="mb-1 block font-semibold">
+                    Privacy & Security / ግላዊነት እና ደህንነት
+                  </span>
+                  Your data is protected with industry-standard encryption. We
+                  never share your personal information or email content with
+                  third parties.
+                </p>
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  የእርስዎ ውሂብ በኢንዱስትሪ ደረጃ ምስጠራ የተጠበቀ ነው። የግል መረጃዎን ወይም
+                  የኢሜል ይዘትዎን ለሶስተኛ ወገኖች ፈጽሞ አናጋራም።
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
 
-          {error ? <p className="text-sm text-red-500">{error}</p> : null}
-
-          <Button
-            className="h-12 w-full text-base font-bold"
-            disabled={loading}
-            type="submit"
-          >
-            {loading ? "Signing in..." : "Sign in with Google / በGoogle ይግቡ"}
-          </Button>
-        </form>
+        {/* Terms */}
+        <p className="mt-8 text-center text-xs text-muted-foreground">
+          By signing in, you agree to our Terms of Service and Privacy Policy.
+          <br />
+          በመግባትዎ በአገልግሎት ውላችን እና በግላዊነት መመሪያችን ይስማማሉ።
+        </p>
       </div>
     </div>
   );

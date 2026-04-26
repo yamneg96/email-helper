@@ -9,6 +9,7 @@ import emailRouter from "./routes/emailRoutes";
 import templateRouter from "./routes/templateRoutes";
 import userRouter from "./routes/userRoutes";
 import { errorHandler, notFoundHandler } from "./middleware/errorMiddleware";
+import { apiLimiter } from "./middleware/rateLimiter";
 
 dotenv.config();
 
@@ -34,7 +35,7 @@ app.use(
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Idempotency-Key"],
   })
 );
 
@@ -72,6 +73,7 @@ app.get("/", (_req: Request, res: Response) => {
   `);
 });
 
+app.use("/api", apiLimiter);
 app.use("/api/auth", authRouter);
 app.use("/api/email", emailRouter);
 app.use("/api/templates", templateRouter);
